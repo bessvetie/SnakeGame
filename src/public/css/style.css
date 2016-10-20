@@ -1,0 +1,172 @@
+body, h4 {
+    margin: 0;
+}
+ul {  
+  list-style: none;
+  padding: 0; 
+  margin: 0;
+}
+
+#workarea {
+  background: #f0f8ff;
+  position: absolute;
+  top: 64px;
+  left: 0;
+  bottom: 30px;
+  right: 0;
+  overflow: hidden;  
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#canvas-wrapper {
+  font-size: 0;
+  letter-spacing: -1px;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 30;
+}
+
+#canvas-wrapper canvas {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* top navbar : start */
+.top-navbar {
+  background: #236525;
+  height: 60px;
+  line-height: 60px;
+  border-bottom: 4px solid #dce80d;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 200;
+}
+.top-navbar__header {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 400;
+}
+.top-navbar__list {
+  position: absolute;
+  top: 15px;
+  right: 0;
+}
+.top-navbar__item {
+  float: left;
+  padding: 0 15px;
+  font-size: 12px;
+}
+.top-navbar__link {
+  color: #FEFFFF;
+}
+.top-navbar__link:active,
+.top-navbar__link:focus,
+.top-navbar__link:hover {
+  color:#ddd;
+}
+/* top navbar : end */
+
+/* bottom navbar : end */
+.bottom-navbar {
+  color: #FEFFFF;
+  background: #929292;
+  height: 30px;
+  line-height: 30px;
+  border-top: 1px solid #2E3136;
+  position: fixed;
+  width: 100%;
+  z-index: 200;
+  bottom: 0;
+}
+.bottom-navbar__list {
+  padding-left: 15px;
+}
+.bottom-navbar__item {
+  width: 100px;
+  display: inline-block;
+}
+/* bottom navbar : end */
+
+/* tool-settings : start */
+#modal{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+#modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.tool-settings {
+  display: inline-block;
+  min-width: 240px;
+  border: 1px solid #c6c3b7;
+  background: #f1f2ec;
+  cursor: default;
+  text-align: left;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.17);
+}
+
+.settings-header {
+  text-align: center;
+  position: relative;
+}
+.settings-header h2 {
+  font-size: 18px;
+  color: #685f55;
+  border-radius: 5px;
+}
+
+.settings-body {
+  padding: 10px;
+  margin-top: -10px;
+}
+
+.settings-body li {
+  padding-top: 5px;
+}
+
+.settings-body__list {
+  text-align: center;
+}
+
+.settings-footer {
+  margin: 10px;
+}
+
+.settings-footer button {
+  position: relative;
+  top: -5px;
+  right: -5px;
+  min-width: 60px;
+  float: right;
+  cursor: pointer;
+}
+
+.settings-body__link,
+.settings-body__link:active,
+.settings-body__link:focus,
+.settings-body__link:hover{
+  color:#685f55;
+}
+/* tool-settings : end */
+.game-information-progress .game-information__list {
+  padding-left: 30px
+}

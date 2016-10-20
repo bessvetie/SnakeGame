@@ -1,0 +1,31 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "Computer game for one player. The player controls a long, thin creature, resembling a snake. \"Snake\" must eat \"food\" and should avoid foreign objects (its tail, stones, edges of the field)",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "game",
+    "snake",
+    "one",
+    "player",
+    "arcade"
+  ],
+  "author": "Lyudmila Ilina",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-htmlmin": "^2.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-filerev": "^2.3.1",
+    "grunt-usemin": "^3.1.1",
+    "load-grunt-tasks": "^3.5.2"
+  }
+}
