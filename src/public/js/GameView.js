@@ -32,37 +32,30 @@
     for (var i in elements) {
       this._elements[i] = getTeg(elements[i]);
     }
-    this.hideElement(this._elements.menu_link);
-    this.hideElement(this._elements.information);
-    this.showElement(this._elements.menu);
-    this.setDeactivate(this._elements.gameWrapper);
+    this.hideModal(this._elements.menu_link);
+    this.hideModal(this._elements.information);
+    this.showModal(this._elements.menu);
     initEvents.call(this);
 
     Object.defineProperty(this, '_presenter', {
       value: new GamePresenter(model, this)
     });
   };
-  GameView.prototype.showElement = function(element) {
+  GameView.prototype.showModal = function(element) {
     element.style.display = '';
+    this._elements.modal.style.display = '';
   };
-  GameView.prototype.hideElement = function(element) {
+  GameView.prototype.hideModal = function(element) {
     element.style.display = 'none';
-  };
-  GameView.prototype.setDeactivate = function(element) {
-    element.style.pointerEvents = 'none';
-    element.style.opacity = '.5';
-  };
-  GameView.prototype.delDeactivate = function(element) {
-    element.style.pointerEvents = '';
-    element.style.opacity = '';
+    this._elements.modal.style.display = 'none';
   };
   GameView.prototype.changeSizeWrapper = function(sizes) {
     var wrapper = this._elements.wrapper;
 
-    wrapper.style.width = sizes.width;
-    wrapper.style.height = sizes.height;
-    wrapper.style.marginTop = -sizes.height / 2;
-    wrapper.style.marginLeft = -sizes.width / 2;
+    wrapper.style.width = sizes.width + 'px';
+    wrapper.style.height = sizes.height + 'px';
+    wrapper.style.marginTop = -sizes.height / 2 + 'px';
+    wrapper.style.marginLeft = -sizes.width / 2 + 'px';
   };
 
   function initEvents() {
@@ -79,18 +72,17 @@
       }
     });
 
-    this._elements.gameOptionsOpen.addEventListener('click', function() {
+    this._elements.gameOptionsOpen.addEventListener('click', function(event) {
       event.preventDefault();
-      _this.showElement(_this._elements.menu);
-      _this.setDeactivate(_this._elements.gameWrapper);
+      _this.showModal(_this._elements.menu);
       _this._presenter.pauseGame();
     });
 
-    this._elements.modal.addEventListener('click', function() {
+    this._elements.modal.addEventListener('click', function(event) {
       var options = event.target.closest('button');
       if (options) {
-        _this.hideElement(_this._elements.information);
-        _this.showElement(_this._elements.menu);
+        _this.hideModal(_this._elements.information);
+        _this.showModal(_this._elements.menu);
       } else {
         _this._presenter.continueGame();
       }
@@ -114,23 +106,19 @@
 
         generateGameOverInfo('Best Result', settingsBody, bestResult);
 
-        _this.showElement(information);
-        _this.setDeactivate(_this._elements.gameWrapper);
+        _this.showModal(information);
       },
       continueGame: function() {
-        _this.hideElement(_this._elements.menu);
-        _this.delDeactivate(_this._elements.gameWrapper);
+        _this.hideModal(_this._elements.menu);
       },
       completeLevel: function(header) {
         var menu_link = _this._elements.menu_link;
         var settingsBody = toolSettings.call(_this, 'LEVEL ' + header, menu_link);
 
-        _this.showElement(menu_link);
-        _this.setDeactivate(_this._elements.gameWrapper);
+        _this.showModal(menu_link);
 
         setTimeout(function() {
-          _this.hideElement(menu_link);
-          _this.delDeactivate(_this._elements.gameWrapper);
+          _this.hideModal(menu_link);
           _this._presenter.continueGame();
         }, 2000);
       }
@@ -209,8 +197,7 @@
     newGame: function() {
       this._presenter.newGame();
 
-      this.hideElement(this._elements.menu);
-      this.delDeactivate(this._elements.gameWrapper);
+      this.hideModal(this._elements.menu);
     },
     _default: function() {
       dummyInformation.call(this);
@@ -225,9 +212,8 @@
     div.innerHTML = 'This trial version. You can choose only New Game';
     settingsBody.appendChild(div);
 
-    this.hideElement(this._elements.menu);
-    this.showElement(information);
-    this.setDeactivate(this._elements.gameWrapper);
+    this.hideModal(this._elements.menu);
+    this.showModal(information);
   }
 
   function getTeg(selector) {

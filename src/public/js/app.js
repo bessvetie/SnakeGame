@@ -20,7 +20,6 @@
     menu_link: '#game-menu-link',
     information: '#game-information',
     gameOptionsOpen: '#game-options-open',
-    gameWrapper: '#game-wrapper',
     bottomNavbar: '#bottom-navbar',
     modal: '#modal'
   });

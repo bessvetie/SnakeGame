@@ -54,7 +54,7 @@
         this.listners[event].apply(this, args);
       }
     });
-    window.addEventListener('keydown', function(position) {
+    window.addEventListener('keydown', function(event) {
       Keydown.call(this, event);
     }.bind(this), true);
 
