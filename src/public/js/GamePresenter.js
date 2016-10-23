@@ -40,7 +40,7 @@
   };
   GamePresenter.prototype.pauseGame = function() {
     var notification = this._game.getNotification();
-    if (notification === 'game') {
+    if (notification === 'game' || notification === 'pause') {
       this._game.stopGame();
     }
   };
